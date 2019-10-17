@@ -13,6 +13,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppExercicio2", "AppExercic
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppExercicio5", "AppExercicio5\AppExercicio5.csproj", "{4D836327-D5F6-4684-8DC0-E3B7B2D080E9}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{FDB5CA67-3E7C-4501-987F-EDADC245A020}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documents", "Documents", "{EB4D9B14-52C1-4252-9243-7CE034103799}"
+	ProjectSection(SolutionItems) = preProject
+		D:\Aprendendo .NET ARISP 2019.docx = D:\Aprendendo .NET ARISP 2019.docx
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -42,6 +49,12 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{041942B6-FB1B-4EBE-90C5-6676CC1BDBEC} = {FDB5CA67-3E7C-4501-987F-EDADC245A020}
+		{F7A1E9FF-91AA-4F9A-915E-B945698A70E2} = {FDB5CA67-3E7C-4501-987F-EDADC245A020}
+		{AEABD8AA-8A53-4600-8FB0-615690BADFC7} = {FDB5CA67-3E7C-4501-987F-EDADC245A020}
+		{4D836327-D5F6-4684-8DC0-E3B7B2D080E9} = {FDB5CA67-3E7C-4501-987F-EDADC245A020}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {57A2AD96-EC0F-469F-A390-FC2FF528FEFB}
