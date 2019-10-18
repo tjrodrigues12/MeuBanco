@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace Domain.Interface
 {
-    interface IConta
+    public interface IConta
     {
-        void Sacar(double valor);
+        bool Sacar(double valor);
 
         void Depositar(double valor);
+
     }
 }

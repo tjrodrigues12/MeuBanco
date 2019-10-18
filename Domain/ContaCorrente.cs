@@ -5,37 +5,19 @@ using System.Text;
 using System.Threading.Tasks;
 
 using Domain.Interface;
+using Domain.Util;
 
 namespace Domain
 {
-    public class ContaCorrente : IConta
-    {
-        #region properties
+    public class ContaCorrente : Conta
+    {  
 
-        private int NumeroAgencia { get; set; }
-        private int NumeroConta { get; set; }
-        private double Saldo { get; set; }
-        private char TipoConta { get; set; }
-        private List<Pessoa> Titulares { get; set; }
+        #region methods        
 
-        #endregion
-
-        #region methods
-
-        public void Depositar(double valor)
+        public override TipoConta RetornarTipoConta()
         {
-            this.Saldo += valor;
+            return TipoConta.ContaCorrente;
         }
-
-        public bool PodeSacar(double valor)
-        {
-            return (this.Saldo > valor);
-        }       
-
-        public void Sacar(double valor)
-        {
-            this.Saldo -= valor;
-        }        
 
         #endregion
 
@@ -47,13 +29,13 @@ namespace Domain
 
         public ContaCorrente(string CPF, string NomeDoTitular, string Telefone, int NumeroAgencia)
         { 
-            Pessoa pessoa = new Pessoa(CPF, NomeDoTitular, Telefone);
+            Cliente pessoa = new Cliente(CPF, NomeDoTitular, Telefone);
             this.Titulares.Add(pessoa);
             this.NumeroAgencia = NumeroAgencia;            
             this.Saldo = 0;
         }
 
-        public ContaCorrente(List<Pessoa> Titulares, int NumeroAgencia)
+        public ContaCorrente(List<Cliente> Titulares, int NumeroAgencia)
         {
             this.Titulares = Titulares;
         }

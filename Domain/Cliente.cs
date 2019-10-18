@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Domain
 {
-    public class Pessoa
+    public class Cliente
     {
         #region Properties        
         public string CPF { get; set; }
@@ -15,12 +15,12 @@ namespace Domain
         #endregion
 
         #region Constructors
-        public Pessoa()
+        public Cliente()
         {
 
         }
 
-        public Pessoa(string CPF, string Nome, string Telefone)
+        public Cliente(string CPF, string Nome, string Telefone)
         {
             this.CPF = CPF;
             this.Nome = Nome;
