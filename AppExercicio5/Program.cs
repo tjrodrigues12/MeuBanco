@@ -241,7 +241,7 @@ namespace AppExercicio5
                 tipoMovimento = Console.ReadLine();
 
                 //Sai do loop se o usuário não quer mais realizar a operação
-                if (tipoMovimento.ToLower() != "r")
+                if (tipoMovimento.ToLower() == "r")
                     break;
 
                 switch (tipoMovimento.ToLower())

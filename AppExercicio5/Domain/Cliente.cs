@@ -16,7 +16,7 @@
         public Cliente(string CPF, string Nome, string Telefone)
         {
             this.CPF = CPF;
-            this.Nome = Nome;            
+            this.Nome = Nome;             
         }
         #endregion
 

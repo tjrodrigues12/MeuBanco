@@ -4,7 +4,6 @@ namespace AppExercicio5.Domain
 {
     public class ContaPoupanca : Conta
     {
-
         #region Methods
         public override TipoConta RetornarTipoConta()
         {
