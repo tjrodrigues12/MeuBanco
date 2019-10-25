@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using AppExercicio4.Domain;
+using System;
 
 namespace AppExercicio4
 {
@@ -32,10 +29,9 @@ namespace AppExercicio4
             //string nomeDoBanco = "NET";
 
             Conta conta = new Conta();
-            
+
             //Input dados
             Console.WriteLine("------Bem vindo ao Banco {0}-------", conta.NomeDoBanco);
-
             Console.Write("Informe o número da Agência: ");
             conta.NumeroAgencia = int.Parse(Console.ReadLine());
             Console.Write("Informe o número da Conta: ");
@@ -94,11 +90,11 @@ namespace AppExercicio4
                         if (!conta.PodeSacar(valorSaque))
                         {
                             Console.Write("Você não tem saldo suficiente! Seu saldo é {0}.", conta.Saldo);
-                            Console.Read();                            
+                            Console.Read();
                             continue;
                         }
 
-                        conta.Sacar(valorSaque);                        
+                        conta.Sacar(valorSaque);
                         break;
                 }
 

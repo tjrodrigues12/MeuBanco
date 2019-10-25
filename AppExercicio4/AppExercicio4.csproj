@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="Domain\Banco.cs" />
     <Compile Include="Domain\Conta.cs" />
+    <Compile Include="Domain\Pessoa.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

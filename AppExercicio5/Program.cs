@@ -11,14 +11,8 @@ namespace AppExercicio5
     {
         static void Main(string[] args)
         {
-            /* 
-            * Sistema Bancário
-           */
-
-
             List<Conta> listaContas = new List<Conta>();
             TipoOperacao tipoOperacao;
-
 
             do
             {
@@ -32,6 +26,7 @@ namespace AppExercicio5
                 Console.WriteLine("L => Listar Contas");
                 Console.WriteLine("T => Transferência");
                 Console.WriteLine("S => Sair do programa");
+                Console.Write("=> ");
 
                 tipoOperacao = (TipoOperacao)char.Parse(Console.ReadLine().ToUpper());
 
@@ -61,7 +56,6 @@ namespace AppExercicio5
                     default:
 
                         break;
-
                 }
 
             } while (tipoOperacao != TipoOperacao.SairDoPrograma);
@@ -92,7 +86,8 @@ namespace AppExercicio5
 
             Console.WriteLine("------Bem vindo ao Banco {0}-------", Banco.ObterNomeBanco());
             Console.WriteLine("Vamos criar sua conta", Banco.ObterNomeBanco());
-            Console.Write("Informe o Tipo da Conta: P => Poupanca / C => Conta Corrente ");
+            Console.WriteLine("Informe o Tipo da Conta: P => Poupanca / C => Conta Corrente ");
+            Console.Write("=> ");
             tipoConta = (TipoConta)char.Parse(Console.ReadLine().ToUpper());
 
             switch (tipoConta)
@@ -139,21 +134,19 @@ namespace AppExercicio5
 
             do
             {
-
                 Cliente cliente = new Cliente();
 
                 Console.Write($"Informe o número do Nome do {num} Titular da Conta: ");
                 cliente.Nome = Console.ReadLine();
                 Console.Write($"Informe o número do CPF do {num} Titular da Conta: ");
                 cliente.CPF = Console.ReadLine();
-                Console.Write($"Informe o número do Telefone do {num} Titular da Conta: ");
-                cliente.Telefone = Console.ReadLine();
 
                 listaClientes.Add(cliente);
 
                 num++;
 
-                Console.Write($"Deseja adicionar o {num} Titular para sua conta? S=> Sim / N=> Não ");
+                Console.WriteLine($"Deseja adicionar o {num} Titular para sua conta? S=> Sim / N=> Não ");
+                Console.Write("=> ");
                 temMaisTitulares = char.Parse(Console.ReadLine());
 
 
@@ -171,9 +164,7 @@ namespace AppExercicio5
             Console.Write("Informe o número da Agência: ");
             conta.NumeroAgencia = int.Parse(Console.ReadLine());
             conta.NumeroConta = Banco.NovoNumeroConta();
-
-            //Console.Write("Informe o número da Conta: ");
-            //conta.NumeroConta = int.Parse(Console.ReadLine());
+            Console.WriteLine($"Seu número da Conta é: {conta.NumeroConta}");
 
             conta.Titulares = AdicionarTitular();
 
@@ -193,7 +184,6 @@ namespace AppExercicio5
             conta.NumeroAgencia = int.Parse(Console.ReadLine());
             conta.NumeroConta = Banco.NovoNumeroConta();
             Console.WriteLine($"Seu número da Conta é: {conta.NumeroConta}");
-            //conta.NumeroConta = int.Parse(Console.ReadLine());
 
             conta.Titulares = AdicionarTitular();
 
@@ -213,7 +203,8 @@ namespace AppExercicio5
             string depInicial = string.Empty;
             valor = 0.00;
 
-            Console.Write("Deseja fazer um depósito inicial? S=> Sim / N=> Não ");
+            Console.WriteLine("Deseja fazer um depósito inicial? S=> Sim / N=> Não ");
+            Console.Write("=> ");
             depInicial = Console.ReadLine();
 
             if (depInicial.ToLower() == "s")
@@ -246,6 +237,7 @@ namespace AppExercicio5
                 Console.WriteLine("D => Depóstio");
                 Console.WriteLine("S => Saque");
                 Console.WriteLine("R => Retornar ao Menu Anterior");
+                Console.Write("=> ");
                 tipoMovimento = Console.ReadLine();
 
                 //Sai do loop se o usuário não quer mais realizar a operação
@@ -259,8 +251,7 @@ namespace AppExercicio5
 
                         Console.Write("Informe o valor de depósito: ");
                         conta.Depositar(double.Parse(Console.ReadLine()));
-                        Console.Write("Valor Depositado com sucesso!");
-                        Console.Read();
+                        Console.WriteLine("Deposito realizado com sucesso!");                        
                         break;
 
                     case "s":
@@ -270,18 +261,19 @@ namespace AppExercicio5
 
                         if (!sucesso)
                         {
-                            Console.Write("Você não tem saldo suficiente! Seu saldo é {0}.", conta.Saldo);
-                            Console.Read();
+                            Console.WriteLine("Você não tem saldo suficiente! Seu saldo é {0}.", conta.Saldo);                            
                             continue;
                         }
 
-                        Console.Write("Saque realizado com sucesso!");
-                        Console.Read();
+                        Console.WriteLine("Saque realizado com sucesso!");                       
 
                         break;
                 }
 
             } while (tipoMovimento.ToLower() != "r");
+
+            Console.WriteLine("Pressione uma tecla para retornar...");
+            Console.ReadKey();
         }
 
         static void Transferir(List<Conta> listaContas)
@@ -302,15 +294,21 @@ namespace AppExercicio5
 
             contaDestino.Depositar(valor);
 
+            Console.WriteLine("Transferencia realizada com sucesso!");
+
+            Console.WriteLine("Pressione uma tecla para retornar...");
+            Console.ReadKey();
+
         }
 
         static void ListarContas(List<Conta> listaContas)
         {
-            Console.WriteLine("Listagem de contas cadastradas:");
+            Console.WriteLine("# Listagem de contas cadastradas:");
             foreach (Conta conta in listaContas)
             {
                 ApresentarDadosConta(conta);                
             }
+            Console.WriteLine("Pressione uma tecla para retornar...");
             Console.ReadKey();
         }
     }

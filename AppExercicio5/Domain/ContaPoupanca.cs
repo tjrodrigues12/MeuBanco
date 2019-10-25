@@ -30,7 +30,6 @@ namespace AppExercicio5.Domain
 
             return retorno;
         }
-
         #endregion
     }
 }

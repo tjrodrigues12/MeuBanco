@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AppExercicio4
+namespace AppExercicio4.Domain
 {
     public class Conta : Banco
     {
@@ -19,6 +19,8 @@ namespace AppExercicio4
         public double Saldo { get; set; }
 
         public char TipoConta { get; set; }
+
+        public Pessoa Titular { get; set; }
 
         #endregion
 
@@ -51,7 +53,7 @@ namespace AppExercicio4
         public Conta(string CPF, string NomeDoTitular, string Telefone, int NumeroAgencia, int NumeroConta, char TipoConta)
         {
             Pessoa pessoa = new Pessoa(CPF, NomeDoTitular, Telefone);
-            this.Titulares.Add(pessoa);
+            this.Titular = pessoa;
         }
 
         #endregion

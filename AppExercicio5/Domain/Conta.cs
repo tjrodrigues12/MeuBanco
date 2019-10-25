@@ -19,18 +19,15 @@ namespace AppExercicio5.Domain
 
         #endregion
 
-        #region methods
-        public void Depositar(double valor)
+        #region methods        
+
+        protected string EmitirExtrato()
         {
-            Saldo += valor;
-        }        
-        #endregion
+            return "Extrato";
+        }
 
-        #region abstract methods
         public abstract TipoConta RetornarTipoConta();
-        #endregion
 
-        #region virtual methods
         protected virtual void RenderSaldo()
         {
 
@@ -42,12 +39,18 @@ namespace AppExercicio5.Domain
 
             if (this.Saldo >= valor)
             {
-                retorno = true;
                 this.Saldo -= valor;
+                retorno = true;
             }
 
             return retorno;
         }
+
+        public void Depositar(double valor)
+        {
+            this.Saldo += valor;
+        }
+
         #endregion
     }
 }

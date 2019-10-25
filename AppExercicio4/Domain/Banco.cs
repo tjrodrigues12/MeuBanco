@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AppExercicio4
+namespace AppExercicio4.Domain
 {
     public class Banco
     {

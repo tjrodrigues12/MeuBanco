@@ -10,7 +10,7 @@ namespace AppExercicio5.Interface
     {
         bool Sacar(double valor);
 
-        void Depositar(double valor);
+       void Depositar(double valor);
 
     }
 }
