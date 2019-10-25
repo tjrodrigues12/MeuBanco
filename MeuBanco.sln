@@ -3,17 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.779
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppExercicio3", "Teste2\AppExercicio3.csproj", "{041942B6-FB1B-4EBE-90C5-6676CC1BDBEC}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppExercicio4", "App_Exercicio4\AppExercicio4.csproj", "{F7A1E9FF-91AA-4F9A-915E-B945698A70E2}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppExercicio2", "AppExercicio2\AppExercicio2.csproj", "{AEABD8AA-8A53-4600-8FB0-615690BADFC7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppExercicio5", "AppExercicio5\AppExercicio5.csproj", "{4D836327-D5F6-4684-8DC0-E3B7B2D080E9}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documents", "Documents", "{EB4D9B14-52C1-4252-9243-7CE034103799}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppExercicio3", "AppExercicio3\AppExercicio3.csproj", "{041942B6-FB1B-4EBE-90C5-6676CC1BDBEC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppExercicio4", "AppExercicio4\AppExercicio4.csproj", "{F7A1E9FF-91AA-4F9A-915E-B945698A70E2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentos", "Documentos", "{7F51B620-4540-4E14-9D11-E92216C42634}"
 	ProjectSection(SolutionItems) = preProject
-		D:\Aprendendo .NET ARISP 2019.docx = D:\Aprendendo .NET ARISP 2019.docx
+		Documentos\Treinamento .NET ARISP 2019.docx = Documentos\Treinamento .NET ARISP 2019.docx
 	EndProjectSection
 EndProject
 Global
@@ -22,14 +22,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{041942B6-FB1B-4EBE-90C5-6676CC1BDBEC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{041942B6-FB1B-4EBE-90C5-6676CC1BDBEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{041942B6-FB1B-4EBE-90C5-6676CC1BDBEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{041942B6-FB1B-4EBE-90C5-6676CC1BDBEC}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F7A1E9FF-91AA-4F9A-915E-B945698A70E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F7A1E9FF-91AA-4F9A-915E-B945698A70E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F7A1E9FF-91AA-4F9A-915E-B945698A70E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F7A1E9FF-91AA-4F9A-915E-B945698A70E2}.Release|Any CPU.Build.0 = Release|Any CPU
 		{AEABD8AA-8A53-4600-8FB0-615690BADFC7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{AEABD8AA-8A53-4600-8FB0-615690BADFC7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AEABD8AA-8A53-4600-8FB0-615690BADFC7}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -38,6 +30,14 @@ Global
 		{4D836327-D5F6-4684-8DC0-E3B7B2D080E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4D836327-D5F6-4684-8DC0-E3B7B2D080E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4D836327-D5F6-4684-8DC0-E3B7B2D080E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{041942B6-FB1B-4EBE-90C5-6676CC1BDBEC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{041942B6-FB1B-4EBE-90C5-6676CC1BDBEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{041942B6-FB1B-4EBE-90C5-6676CC1BDBEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{041942B6-FB1B-4EBE-90C5-6676CC1BDBEC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F7A1E9FF-91AA-4F9A-915E-B945698A70E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F7A1E9FF-91AA-4F9A-915E-B945698A70E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F7A1E9FF-91AA-4F9A-915E-B945698A70E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F7A1E9FF-91AA-4F9A-915E-B945698A70E2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
