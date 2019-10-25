@@ -2,37 +2,28 @@
 using System.Collections.Generic;
 using System.Linq;
 
-using Domain;
-using Domain.Util;
+using AppExercicio5.Domain;
+using AppExercicio5.Util;
 
 namespace AppExercicio5
 {
     class Program
     {
-        static List<Conta> listaContas = new List<Conta>();
-
         static void Main(string[] args)
         {
             /* 
             * Sistema Bancário
            */
 
-            //Variáveis
-            //int numeroAgencia = 0;
-            //int numeroConta = 0;
-            //string nomeDoTitular = string.Empty;
 
-            //double saldo = 0.00;
-            //double valorSaque = 0.00;
-            //string depositoInicial;
-            //string operacao;
+            List<Conta> listaContas = new List<Conta>();
             TipoOperacao tipoOperacao;
-            //string nomeDoBanco = "NET";
 
-            //Input dados
 
             do
             {
+                Console.Clear();
+
                 Console.WriteLine("------Bem vindo ao Banco {0}-------", Banco.ObterNomeBanco());
 
                 Console.WriteLine("Selecione uma operação que deseja realizar:");
@@ -42,7 +33,7 @@ namespace AppExercicio5
                 Console.WriteLine("T => Transferência");
                 Console.WriteLine("S => Sair do programa");
 
-                tipoOperacao = (TipoOperacao)char.Parse(Console.ReadLine());
+                tipoOperacao = (TipoOperacao)char.Parse(Console.ReadLine().ToUpper());
 
                 switch (tipoOperacao)
                 {
@@ -52,15 +43,15 @@ namespace AppExercicio5
                         break;
 
                     case TipoOperacao.Movimentacao:
-                        Movimentar();
+                        Movimentar(listaContas);
                         break;
 
                     case TipoOperacao.ListarContas:
-
+                        ListarContas(listaContas);
                         break;
 
                     case TipoOperacao.Transferencia:
-                        Transferir();
+                        Transferir(listaContas);
                         break;
 
                     case TipoOperacao.SairDoPrograma:
@@ -79,7 +70,8 @@ namespace AppExercicio5
         static void ApresentarDadosConta(Conta conta)
         {
             Console.WriteLine("------Bem vindo ao Banco {0}-------", Banco.ObterNomeBanco());
-            Console.WriteLine("Agência: {0} - Conta: {1}", conta.NumeroAgencia, conta.NumeroConta);
+            Console.WriteLine("Número da Agência: {0}", conta.NumeroAgencia);
+            Console.WriteLine("Número da Conta: {0}", conta.NumeroConta);
             Console.WriteLine("{0}", conta.RetornarTipoConta());
             Console.WriteLine("Nome do(s) Titular(es):");
 
@@ -101,7 +93,7 @@ namespace AppExercicio5
             Console.WriteLine("------Bem vindo ao Banco {0}-------", Banco.ObterNomeBanco());
             Console.WriteLine("Vamos criar sua conta", Banco.ObterNomeBanco());
             Console.Write("Informe o Tipo da Conta: P => Poupanca / C => Conta Corrente ");
-            tipoConta = (TipoConta)char.Parse(Console.ReadLine());
+            tipoConta = (TipoConta)char.Parse(Console.ReadLine().ToUpper());
 
             switch (tipoConta)
             {
@@ -122,12 +114,12 @@ namespace AppExercicio5
 
         }
 
-        static Conta SolicitarDadosConta(InfoConta infoConta)
+        static Conta SolicitarDadosConta(InfoConta infoConta, List<Conta> listaContas)
         {
             int numeroAgencia;
             int numeroConta;
 
-            Console.Write("Dados da conta {0}", arg0: Enum.GetName(infoConta.GetType(), infoConta));
+            Console.WriteLine("Dados da conta {0}", arg0: Enum.GetName(infoConta.GetType(), infoConta));
             Console.Write("Informe o número da Agência: ");
             numeroAgencia = int.Parse(Console.ReadLine());
             Console.Write("Informe o número da Conta: ");
@@ -165,7 +157,7 @@ namespace AppExercicio5
                 temMaisTitulares = char.Parse(Console.ReadLine());
 
 
-            } while (temMaisTitulares.ToString().ToLower() != "s");
+            } while (temMaisTitulares.ToString().ToLower() != "n");
 
             return listaClientes;
 
@@ -200,7 +192,7 @@ namespace AppExercicio5
             Console.Write("Informe o número da Agência: ");
             conta.NumeroAgencia = int.Parse(Console.ReadLine());
             conta.NumeroConta = Banco.NovoNumeroConta();
-            //Console.Write("Informe o número da Conta: ");
+            Console.WriteLine($"Seu número da Conta é: {conta.NumeroConta}");
             //conta.NumeroConta = int.Parse(Console.ReadLine());
 
             conta.Titulares = AdicionarTitular();
@@ -235,23 +227,20 @@ namespace AppExercicio5
 
         }
 
-        static void Movimentar()
+        static void Movimentar(List<Conta> listaContas)
         {
 
             string tipoMovimento;
 
             do
             {
-                Console.Clear();
-
-                Conta conta = SolicitarDadosConta(InfoConta.Atual);
+                Conta conta = SolicitarDadosConta(InfoConta.Atual, listaContas);
 
                 if (conta == null)
+
                     return;
 
                 ApresentarDadosConta(conta);
-
-
 
                 Console.WriteLine("Selecione uma movimentação que deseja realizar:");
                 Console.WriteLine("D => Depóstio");
@@ -270,8 +259,8 @@ namespace AppExercicio5
 
                         Console.Write("Informe o valor de depósito: ");
                         conta.Depositar(double.Parse(Console.ReadLine()));
-                        Console.Clear();
-
+                        Console.Write("Valor Depositado com sucesso!");
+                        Console.Read();
                         break;
 
                     case "s":
@@ -286,16 +275,19 @@ namespace AppExercicio5
                             continue;
                         }
 
+                        Console.Write("Saque realizado com sucesso!");
+                        Console.Read();
+
                         break;
                 }
 
             } while (tipoMovimento.ToLower() != "r");
         }
 
-        static void Transferir()
+        static void Transferir(List<Conta> listaContas)
         {
-            Conta contaOrigem = SolicitarDadosConta(InfoConta.Origem);
-            Conta contaDestino = SolicitarDadosConta(InfoConta.Destino);
+            Conta contaOrigem = SolicitarDadosConta(InfoConta.Origem, listaContas);
+            Conta contaDestino = SolicitarDadosConta(InfoConta.Destino, listaContas);
 
             Console.Write("Informe o valor que deseja transferir: ");
             double valor = Double.Parse(Console.ReadLine());
@@ -312,5 +304,14 @@ namespace AppExercicio5
 
         }
 
+        static void ListarContas(List<Conta> listaContas)
+        {
+            Console.WriteLine("Listagem de contas cadastradas:");
+            foreach (Conta conta in listaContas)
+            {
+                ApresentarDadosConta(conta);                
+            }
+            Console.ReadKey();
+        }
     }
 }

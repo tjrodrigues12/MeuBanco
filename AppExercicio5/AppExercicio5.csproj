@@ -32,6 +32,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>AppExercicio5.Program</StartupObject>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -43,17 +46,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Domain\Banco.cs" />
+    <Compile Include="Domain\Cliente.cs" />
+    <Compile Include="Domain\Conta.cs" />
+    <Compile Include="Domain\ContaCorrente.cs" />
+    <Compile Include="Domain\ContaPoupanca.cs" />
+    <Compile Include="Interface\IConta.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Util\Enumeradores.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Domain\Domain.csproj">
-      <Project>{a7a203a1-6376-410f-bf26-762c75d3526b}</Project>
-      <Name>Domain</Name>
-    </ProjectReference>
+    <Folder Include="Diagram\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
