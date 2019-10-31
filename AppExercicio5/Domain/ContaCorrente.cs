@@ -1,18 +1,14 @@
-﻿using AppExercicio5.Util;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+
+using AppExercicio5.Util.Enumerador;
 
 namespace AppExercicio5.Domain
 {
     public class ContaCorrente : Conta
-    {  
+    {
 
-        #region methods        
-
-        public override TipoConta RetornarTipoConta()
-        {
-            return TipoConta.ContaCorrente;
-        }
-
+        #region methods
+        public override TipoConta RetornarTipoConta => TipoConta.ContaCorrente;
         #endregion
 
         #region constructors

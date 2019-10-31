@@ -1,6 +1,7 @@
-﻿using AppExercicio5.Interface;
-using AppExercicio5.Util;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+
+using AppExercicio5.Interface;
+using AppExercicio5.Util.Enumerador;
 
 namespace AppExercicio5.Domain
 {
@@ -26,7 +27,7 @@ namespace AppExercicio5.Domain
             return "Extrato";
         }
 
-        public abstract TipoConta RetornarTipoConta();
+        public abstract TipoConta RetornarTipoConta { get; }
 
         protected virtual void RenderSaldo()
         {

@@ -1,15 +1,13 @@
-﻿using AppExercicio5.Util;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+
+using AppExercicio5.Util.Enumerador;
 
 namespace AppExercicio5.Domain
 {
     public class ContaPoupanca : Conta
     {
         #region Methods
-        public override TipoConta RetornarTipoConta()
-        {
-            return TipoConta.Poupanca;
-        }
+        public override TipoConta RetornarTipoConta => TipoConta.Poupanca;
 
         protected override void RenderSaldo()
         {

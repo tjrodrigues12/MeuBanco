@@ -65,7 +65,7 @@ namespace AppExercicio5
             Write($"------Bem vindo ao Banco {Banco.ObterNomeBanco()}-------");
             Write($"Número da Agência: {conta.NumeroAgencia}");
             Write($"Número da Conta: {conta.NumeroConta}");
-            Write($"{conta.RetornarTipoConta()}");
+            Write($"{conta.RetornarTipoConta}");
             Write($"Nome do(s) Titular(es):");
 
             foreach (Cliente cliente in conta.Titulares)
@@ -111,8 +111,8 @@ namespace AppExercicio5
             int numeroAgencia;
             int numeroConta;
 
-            Write($"Dados da conta {Enum.GetName(infoConta.GetType(), infoConta)}");            
-            numeroAgencia = int.Parse(WriteRead("Informe o número da Agência: "));            
+            Write($"Dados da conta {Enum.GetName(infoConta.GetType(), infoConta)}");
+            numeroAgencia = int.Parse(WriteRead("Informe o número da Agência: "));
             numeroConta = int.Parse(WriteRead("Informe o número da Conta: "));
 
             Conta conta = listaContas.Where(c => c.NumeroAgencia == numeroAgencia
@@ -131,8 +131,8 @@ namespace AppExercicio5
             {
                 Cliente cliente = new Cliente();
 
-                cliente.Nome = WriteRead($"Informe o número do Nome do {num} Titular da Conta: ");
-                cliente.CPF = WriteRead($"Informe o número do CPF do {num} Titular da Conta: ");
+                cliente.Nome = WriteRead($"Informe o número do Nome do {num}º Titular da Conta: ");
+                cliente.CPF = WriteRead($"Informe o número do CPF do {num}º Titular da Conta: ");
 
                 listaClientes.Add(cliente);
 
@@ -151,7 +151,7 @@ namespace AppExercicio5
         static ContaPoupanca CriarContaPoupanca()
         {
 
-            ContaPoupanca conta = new ContaPoupanca(                
+            ContaPoupanca conta = new ContaPoupanca(
                 int.Parse(WriteRead("Informe o número da Agência: ")),
                 Banco.NovoNumeroConta(),
                 AdicionarTitular()
@@ -169,7 +169,7 @@ namespace AppExercicio5
 
         static ContaCorrente CriarContaCorrente()
         {
-            ContaCorrente conta = new ContaCorrente(           
+            ContaCorrente conta = new ContaCorrente(
                 int.Parse(WriteRead("Informe o número da Agência: ")),
                 Banco.NovoNumeroConta(),
                 AdicionarTitular()
@@ -192,11 +192,11 @@ namespace AppExercicio5
             bool retorno = false;
             string depInicial = string.Empty;
             valor = 0.00;
-            
+
             depInicial = WriteRead("Deseja fazer um depósito inicial? S=> Sim / N=> Não: ");
 
             if (depInicial.ToLower() == "s")
-            {   
+            {
                 valor = Convert.ToDouble(WriteRead("Informe o valor de depósito: "));
                 retorno = true;
             };
@@ -207,24 +207,23 @@ namespace AppExercicio5
 
         static void Movimentar(List<Conta> listaContas)
         {
-
             string tipoMovimento;
 
             do
             {
-                Conta conta = SolicitarDadosConta(InfoConta.Atual, listaContas);
-
-                if (conta == null)
-
-                    return;
-
-                ApresentarDadosConta(conta);
-
                 Write("Selecione uma movimentação que deseja realizar:");
                 Write("D => Depóstio");
                 Write("S => Saque");
-                Write("R => Retornar ao Menu Anterior");                
+                Write("R => Retornar ao Menu Anterior");
                 tipoMovimento = Console.ReadLine();
+
+                Conta conta = SolicitarDadosConta(InfoConta.Atual, listaContas);
+
+                //Se não encontrar a conta volta novamente ao loop
+                if (conta == null)
+                    return;
+
+                ApresentarDadosConta(conta);
 
                 //Sai do loop se o usuário não quer mais realizar a operação
                 if (tipoMovimento.ToLower() == "r")
@@ -233,19 +232,21 @@ namespace AppExercicio5
                 switch (tipoMovimento.ToLower())
                 {
                     case "d":
-                        conta.Depositar(double.Parse(WriteRead("Informe o valor de depósito: "));
+
+                        conta.Depositar(double.Parse(WriteRead("Informe o valor de depósito: ")));
                         Write("Deposito realizado com sucesso!");
+
                         break;
 
                     case "s":
-                        bool sucesso = conta.Sacar(double.Parse(WriteRead("Informe o valor de saque: ")));
 
+                        bool sucesso = conta.Sacar(double.Parse(WriteRead("Informe o valor de saque: ")));
                         if (!sucesso)
                         {
                             Write($"Você não tem saldo suficiente! Seu saldo é {conta.Saldo}.");
+                            Console.ReadKey();
                             continue;
                         }
-
                         Write("Saque realizado com sucesso!");
 
                         break;
@@ -283,7 +284,7 @@ namespace AppExercicio5
         {
             Write("----- Listagem de contas cadastradas: -----");
 
-            foreach (Conta conta in listaContas)            
+            foreach (Conta conta in listaContas)
                 ApresentarDadosConta(conta);
 
             ReturnText();
