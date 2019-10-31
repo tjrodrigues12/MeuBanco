@@ -16,22 +16,12 @@ namespace AppExercicio5.Domain
         #endregion
 
         #region constructors
-        public ContaCorrente()
+
+        public ContaCorrente(int numeroAgencia, int numeroConta, List<Cliente> Titulares)
         {
-
-        }
-
-        public ContaCorrente(string CPF, string NomeDoTitular, string Telefone, int NumeroAgencia)
-        { 
-            Cliente pessoa = new Cliente(CPF, NomeDoTitular, Telefone);
-            this.Titulares.Add(pessoa);
-            this.NumeroAgencia = NumeroAgencia;            
-            this.Saldo = 0;
-        }
-
-        public ContaCorrente(List<Cliente> Titulares, int NumeroAgencia)
-        {
-            this.Titulares = Titulares;
+            base.NumeroAgencia = numeroAgencia;
+            base.NumeroConta = numeroConta;
+            base.Titulares = Titulares;
         }
 
         #endregion

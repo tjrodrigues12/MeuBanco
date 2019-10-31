@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AppExercicio5.Util
+namespace AppExercicio5.Util.Enumerador
 {
     public enum TipoConta
     {

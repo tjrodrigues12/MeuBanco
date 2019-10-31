@@ -10,28 +10,20 @@
   <Class Name="AppExercicio5.Domain.Cliente">
     <Position X="5.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAgAAAAAAAAAAAAACAAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAEAAAA=</HashCode>
       <FileName>Domain\Cliente.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="AppExercicio5.Domain.Conta">
     <Position X="3" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAACAAIgAAAAAAAAAAAAAAAAAAEACAIAIAAAgAAEA=</HashCode>
+      <HashCode>AAAAACAAIgAAAAAAAAAAAAAAAAAQEACAIAIAAAgAAEA=</HashCode>
       <FileName>Domain\Conta.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="AppExercicio5.Domain.ContaCorrente">
     <Position X="1.25" Y="4.5" Width="1.5" />
-    <InheritanceLine Type="AppExercicio5.Domain.Conta" FixedToPoint="true">
-      <Path>
-        <Point X="3.75" Y="3.661" />
-        <Point X="3.75" Y="4.125" />
-        <Point X="2.062" Y="4.125" />
-        <Point X="2.062" Y="4.5" />
-      </Path>
-    </InheritanceLine>
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAA=</HashCode>
       <FileName>Domain\ContaCorrente.cs</FileName>

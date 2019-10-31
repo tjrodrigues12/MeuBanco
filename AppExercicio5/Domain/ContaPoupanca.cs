@@ -1,4 +1,5 @@
 ﻿using AppExercicio5.Util;
+using System.Collections.Generic;
 
 namespace AppExercicio5.Domain
 {
@@ -28,6 +29,15 @@ namespace AppExercicio5.Domain
             }
 
             return retorno;
+        }
+        #endregion
+
+        #region Constructor
+        public ContaPoupanca(int numeroAgencia, int numeroConta, List<Cliente> titulares)
+        {
+            base.NumeroAgencia = numeroAgencia;
+            base.NumeroConta = numeroConta;
+            base.Titulares = titulares;
         }
         #endregion
     }
